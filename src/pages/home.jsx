@@ -1,9 +1,9 @@
 import Navbar from "./components/navbar";
+import {programmingLang} from './components/lists'
 import homeStyle from '../CSS/home.module.css';
 import introStyle from '../CSS/intro.module.css';
 import skillsetStyle from '../CSS/skillset.module.css';
 import workexperienceStyle from '../CSS/workexperience.module.css';
-
 
 function Home (){
     return (
@@ -24,10 +24,17 @@ function Home (){
             </div>
             <div className={skillsetStyle.skillSet}>
                 <div className="Title">Technical Skills</div>
-                    {/* All to be replaced ones we know how to implement lists */}
-
-                <div className="list">
-                    List of programming languages
+                <div className={skillsetStyle.list}>
+                    {
+                        programmingLang.map(lang => (
+                            <div key= {lang.id} className={skillsetStyle.c}>
+                                <div className={skillsetStyle.photo}>
+                                    <img src={lang.img} alt="" className={skillsetStyle.icon}/>
+                                </div>
+                                <p className={skillsetStyle.label}>{lang.name}</p>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
             <div className={workexperienceStyle.work_experience}>

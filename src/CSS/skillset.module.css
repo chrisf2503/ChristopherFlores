@@ -1,4 +1,5 @@
 .skillSet{
+    gap:20px;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -8,4 +9,51 @@
     font-size: 32px;
     color: black;
     font-family: 'Jacques Franocis';
+}
+.list {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 75px;
+    opacity: 0.75;
+    text-align: center;
+    font-size: var(--fs-13);
+    color: var(--color-black);
+    font-family: var(--font-jacques-francois);
+}
+.c {
+    width: var(--width-131);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-0) var(--padding-19);
+    box-sizing: border-box;
+}
+
+.photo {
+overflow: hidden;
+flex-shrink: 0;
+}
+.icon {
+width: 100%;
+height: 125px;
+position: relative;
+max-width: 100%;
+overflow: hidden;
+max-height: 100%;
+object-fit: cover;}
+.label {
+align-self: stretch;
+height: var(--height-25);
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
 }
