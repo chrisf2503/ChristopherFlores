@@ -25,9 +25,9 @@ height: 530px;
 .work_details {
 height: 715px;
 width: 50%;
+gap: 0;
 display: flex;
 flex-direction: column;
-
 justify-content: space-around;
 text-align: center;
 font-size: var(--fs-32);
@@ -55,7 +55,6 @@ flex-shrink: 0;
 .responsibilty {
 align-self: stretch;
 height: 347px;
-position: relative;
 overflow: hidden;
 flex-shrink: 0;
 text-align: left;
