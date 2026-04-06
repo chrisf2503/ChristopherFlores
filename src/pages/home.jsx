@@ -1,13 +1,25 @@
+import { useState } from 'react';
 import Navbar from "./components/navbar";
-import { motion } from "framer-motion";
-
-import {programmingLang} from './components/lists'
+import { motion as Motion } from "framer-motion";
+import { work_list } from './components/experienceList';
+import { programmingLang } from './components/lists';
 import homeStyle from '../CSS/home.module.css';
 import introStyle from '../CSS/intro.module.css';
 import skillsetStyle from '../CSS/skillset.module.css';
 import workexperienceStyle from '../CSS/workexperience.module.css';
 
 function Home (){
+    const [index, setIndex] = useState(0);
+    const currentExperience = work_list[index];
+
+    const handleNext = () => {
+        setIndex((prevIndex) => (prevIndex + 1) % work_list.length);
+    };
+
+    const handlePrev = () => {
+        setIndex((prevIndex) => (prevIndex - 1 + work_list.length) % work_list.length);
+    };
+
     const skillListVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -53,49 +65,54 @@ function Home (){
             <div className={skillsetStyle.skillSet}>
                 <div className="Title">Technical Skills</div>
                 {/* Add sliding animation */}
-                <motion.ul className={skillsetStyle.list}
+                <Motion.ul className={skillsetStyle.list}
                 initial="hidden"
                 animate="visible"
                 variants={skillListVariants}>
                     {
                         programmingLang.map(lang => (
-                            <motion.li key={lang.id} className={skillsetStyle.c} variants={skillItemVariants}>
-                                <motion.div className={skillsetStyle.photo}>
-                                    <motion.img src={lang.img} alt="" className={skillsetStyle.icon}/>
-                                </motion.div>
-                                <motion.p className={skillsetStyle.label}>{lang.name}</motion.p>
-                            </motion.li>
+                            <Motion.li key={lang.id} className={skillsetStyle.c} variants={skillItemVariants}>
+                                <Motion.div className={skillsetStyle.photo}>
+                                    <Motion.img src={lang.img} alt="" className={skillsetStyle.icon}/>
+                                </Motion.div>
+                                <Motion.p className={skillsetStyle.label}>{lang.name}</Motion.p>
+                            </Motion.li>
                         ))
                     }
-                </motion.ul>
+                </Motion.ul>
             </div>
             <div className="workExperienceContainer">
                 <div className={workexperienceStyle.work_experience}>
 
                     <div className={workexperienceStyle.workimage}>
-                        <img src="" alt="" className={workexperienceStyle.workimg}/>
+                        <img src={currentExperience.img} alt={currentExperience.title} className={workexperienceStyle.workimg}/>
                     </div>
                     <div className={workexperienceStyle.work_details}>
-                        {/* All to be replaced ones we know how to implement lists */}
-                        <div className={workexperienceStyle.title}>Title</div>
-                        <div className="Employeer">Employeer</div>
-                        <div className={workexperienceStyle.timeline}>{`Start - End`}</div>
+                        <div className={workexperienceStyle.title}>{currentExperience.title}</div>
+                        <div>{currentExperience.employeer}</div>
+                        <div className={workexperienceStyle.timeline}>
+                            {`${currentExperience.startDate} - ${currentExperience.endDate}`}
+                        </div>
                         <div className={workexperienceStyle.responsibility}>
                             <div className={workexperienceStyle.details}>
                                 <ul className={workexperienceStyle.list}>
-                                    <li className={workexperienceStyle.experience}>item1</li>
-                                    <li className={workexperienceStyle.experience}>item2</li>
-                                    <li className={workexperienceStyle.experience}>item3</li>
-                                    <li className={workexperienceStyle.experience}>item4</li>
-                                    <li className={workexperienceStyle.experience}>item5</li>
+                                    {currentExperience.discription.length > 0 ? (
+                                        currentExperience.discription.map((item, itemIndex) => (
+                                            <li key={itemIndex} className={workexperienceStyle.experience}>{item}</li>
+                                        ))
+                                    ) : (
+                                        <li className={workexperienceStyle.experience}>
+                                            Experience details coming soon.
+                                        </li>
+                                    )}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="Button Container">
-                    The idea here is that we want to move these images, but going one by ones
-                    It could be like the formate .... and these are the work experience
+                <div className="Button_Container">
+                    <button type="button" onClick={handlePrev}>Previous</button>
+                    <button type="button" onClick={handleNext}>Next</button>
                 </div>
             </div>
         </>
