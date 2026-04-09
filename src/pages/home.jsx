@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from "./components/navbar";
-import { motion as Motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import { work_list } from './components/experienceList';
 import { programmingLang } from './components/lists';
 import homeStyle from '../CSS/home.module.css';
@@ -10,7 +10,9 @@ import workexperienceStyle from '../CSS/workexperience.module.css';
 
 function Home (){
     const [index, setIndex] = useState(0);
+    const [mobileSkillIndex, setMobileSkillIndex] = useState(0);
     const currentExperience = work_list[index];
+    const currentMobileSkill = programmingLang[mobileSkillIndex];
 
     const handleNext = () => {
         setIndex((prevIndex) => (prevIndex + 1) % work_list.length);
@@ -41,6 +43,14 @@ function Home (){
         },
     };
 
+    useEffect(() => {
+        const intervalId = window.setInterval(() => {
+            setMobileSkillIndex((prevIndex) => (prevIndex + 1) % programmingLang.length);
+        }, 2200);
+
+        return () => window.clearInterval(intervalId);
+    }, []);
+
     return (
         <>  
         
@@ -61,7 +71,6 @@ function Home (){
             </div>
             <div className={skillsetStyle.skillSet}>
                 <div className="Title">Technical Skills</div>
-                {/* Add sliding animation */}
                 <Motion.ul className={skillsetStyle.list}
                 initial="hidden"
                 animate="visible"
@@ -77,6 +86,23 @@ function Home (){
                         ))
                     }
                 </Motion.ul>
+                <div className={skillsetStyle.mobileSkillShowcase}>
+                    <AnimatePresence mode="wait">
+                        <Motion.div
+                            key={currentMobileSkill.id}
+                            className={skillsetStyle.mobileSkillCard}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <div className={skillsetStyle.photo}>
+                                <img src={currentMobileSkill.img} alt={currentMobileSkill.name} className={skillsetStyle.mobileIcon}/>
+                            </div>
+                            <p className={skillsetStyle.mobileLabel}>{currentMobileSkill.name}</p>
+                        </Motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
             <div className={workexperienceStyle.workExperienceContainer}>
                 <div className={workexperienceStyle.work_experience}>

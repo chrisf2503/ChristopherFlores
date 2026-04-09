@@ -1,16 +1,24 @@
 body {
   margin: 0 !important;
+  overflow-x: hidden;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .start {
   width: 100%;
-  height: 806px;
+  min-height: 806px;
   position: relative;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  padding: 17px 50px;
+  padding: 17px 50px 48px;
   overflow: hidden;
   box-sizing: border-box;
   isolation: isolate;
@@ -19,4 +27,18 @@ body {
   font-size: 32px;
   font-family: 'Jacques Francois';
   background: linear-gradient(119.04deg, #3a0ca3, #7209b7 50%, #f72585);
+}
+
+@media (max-width: 900px) {
+  .start {
+    min-height: auto;
+    padding: 20px 24px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .start {
+    padding: 16px 16px 32px;
+    gap: 20px;
+  }
 }

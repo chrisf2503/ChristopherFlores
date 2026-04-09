@@ -1,102 +1,185 @@
 .work_experience {
-width: 100%;
-position: relative;
-overflow: hidden;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content:space-evenly;
-gap: 0px ;
-text-align: left;
-font-size: var(--fs-32);
-color: var(--color-black);
-font-family: var(--font-jacques-francois);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0;
+  width: 100%;
+  overflow: hidden;
+  color: var(--color-black);
+  text-align: left;
+  font-size: var(--fs-32);
+  font-family: var(--font-jacques-francois);
 }
-.workExperienceContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+.workExperienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 0 50px 40px;
 }
+
 .workimage {
-height: 715px;
-width: 50%;
-display: flex;
-
-justify-content: center;
-overflow: hidden;
-flex-shrink: 0;
-
+  display: flex;
+  justify-content: center;
+  width: min(50%, 720px);
+  min-height: 715px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.workimg{
-width: 100%;
-height: 100%;
+
+.workimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 .work_details {
-height: 715px;
-width: 50%;
-gap: 0;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-text-align: center;
-font-size: var(--fs-32);
-color: var(--color-black);
-font-family: var(--font-jacques-francois);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0;
+  width: min(50%, 720px);
+  min-height: 715px;
+  color: var(--color-black);
+  text-align: center;
+  font-size: var(--fs-32);
+  font-family: var(--font-jacques-francois);
 }
+
 .title {
-align-self: stretch;
-height: 42px;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  height: 42px;
+  flex-shrink: 0;
 }
-.timeline{
-align-self: stretch;
-height: 62px;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
+
+.timeline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  height: 62px;
+  flex-shrink: 0;
 }
+
 .responsibilty {
-align-self: stretch;
-height: 347px;
-overflow: hidden;
-flex-shrink: 0;
-text-align: left;
+  align-self: stretch;
+  height: 347px;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: left;
 }
+
 .details {
-line-height: 70px;
-display: inline-block;
-height: 493px;
-flex-shrink: 0;
+  display: inline-block;
+  min-height: 493px;
+  line-height: 1.8;
+  flex-shrink: 0;
 }
+
 .list {
-margin: 0;
-font-family: inherit;
-font-size: inherit;
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
 }
+
 .experience {
-    text-align: left;
-    margin-bottom: 0px;
+  margin-bottom: 0;
+  text-align: left;
 }
-.button_container{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
-.buttons{
-    background: linear-gradient(135deg, #7c3aed, #4f46e5);
-  color: white;
+
+.buttons {
   padding: 10px 18px;
-  border-radius: 12px;
+  color: white;
   border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.buttons:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+
+.buttons:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+@media (max-width: 900px) {
+  .workExperienceContainer {
+    padding: 0 24px 32px;
+  }
+
+  .work_experience {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .workimage,
+  .work_details {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .workimage {
+    max-height: 420px;
+  }
+
+  .details {
+    min-height: auto;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 640px) {
+  .workExperienceContainer {
+    padding: 0 16px 28px;
+    gap: 18px;
+  }
+
+  .work_experience {
+    gap: 18px;
+  }
+
+  .workimage {
+    max-height: none;
+    min-height: 220px;
+  }
+
+  .workimg {
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+  }
+
+  .work_details {
+    text-align: left;
+    gap: 14px;
+  }
+
+  .title,
+  .timeline {
+    height: auto;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .button_container {
+    flex-wrap: wrap;
+  }
+
+  .buttons {
+    width: 100%;
+    max-width: 220px;
+  }
 }
