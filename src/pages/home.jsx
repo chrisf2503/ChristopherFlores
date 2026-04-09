@@ -54,10 +54,7 @@ function Home (){
                         <div className={introStyle.name}>Christopher Flores</div>
                         <div className={introStyle.subtitle}>Aspiring Software Developer, BS Computer Science</div>
                         <div className={introStyle.text}>
-                            Hunter College Daedalus Scholar New Graduate 2026. 
-                            Bilingual in English and Spanish. Not afraid of learn
-                            something new and not afraid of anything challenging.
-                            Maintaining website for Mazarte Dance Company 
+                            Software Developer focused on building responsive and modern web applications using React and JavaScript. Currently maintaining and improving the Mazarte Dance Company website, with an emphasis on performance, usability, and clean design. Computer Science student at Hunter College (Daedalus Scholar, Class of 2026). 
                         </div>
                     </div>
                 </div>
@@ -81,7 +78,7 @@ function Home (){
                     }
                 </Motion.ul>
             </div>
-            <div className="workExperienceContainer">
+            <div className={workexperienceStyle.workExperienceContainer}>
                 <div className={workexperienceStyle.work_experience}>
 
                     <div className={workexperienceStyle.workimage}>
@@ -89,7 +86,7 @@ function Home (){
                     </div>
                     <div className={workexperienceStyle.work_details}>
                         <div className={workexperienceStyle.title}>{currentExperience.title}</div>
-                        <div>{currentExperience.employeer}</div>
+                        <div>{currentExperience.employeer} {currentExperience.address}</div>
                         <div className={workexperienceStyle.timeline}>
                             {`${currentExperience.startDate} - ${currentExperience.endDate}`}
                         </div>
@@ -110,9 +107,9 @@ function Home (){
                         </div>
                     </div>
                 </div>
-                <div className="Button_Container">
-                    <button type="button" onClick={handlePrev}>Previous</button>
-                    <button type="button" onClick={handleNext}>Next</button>
+                <div className={workexperienceStyle.button_container}>
+                    <button type="button" className = {workexperienceStyle.buttons}onClick={handlePrev}>Previous</button>
+                    <button type="button" className = {workexperienceStyle.buttons} onClick={handleNext}>Next</button>
                 </div>
             </div>
         </>
