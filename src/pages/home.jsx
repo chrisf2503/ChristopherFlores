@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import myimg from '../assets/chrisflores.jpg'
 import Navbar from "./components/navbar";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { work_list } from './components/experienceList';
@@ -58,7 +59,7 @@ function Home (){
                 <Navbar/>
                 <div className={introStyle.intro}>
                     <div className={introStyle.picture}>
-                        <img alt="" className={introStyle.pictureChild} />
+                        <img src = {myimg} alt="" className={introStyle.pictureChild} />
                     </div>
                     <div className={introStyle.description}>
                         <div className={introStyle.name}>Christopher Flores</div>
