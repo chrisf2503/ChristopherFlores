@@ -79,11 +79,8 @@
   }
 
   .pictureChild {
-    top: 20px;
-    left: 50%;
     width: min(300px, 78vw);
     height: auto;
-    transform: translateX(-50%);
   }
 
   .description {
