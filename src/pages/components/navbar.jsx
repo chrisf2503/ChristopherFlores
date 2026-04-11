@@ -1,18 +1,19 @@
 import navStyle from '../../CSS/navbar.module.css';
+import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
   	return (
-    	<div className={navStyle.navbar}>
+    	<nav className={navStyle.navbar}>
       		<div className={navStyle.title}>
-    			<div className={navStyle.profile_title}>Christopher Flores Profile</div>
+    			<Link to="/" className={navStyle.profile_title}>Christopher Flores Profile</Link>
   			</div>
     		<div className={navStyle.links}>
-    			<div className={navStyle.about_link}>About</div>
+    			<Link to ='/about' className={navStyle.about_link}>About</Link>
         		<div className={navStyle.about_link}>Projects</div>
         		<div className={navStyle.about_link}>Contact</div>
       		</div>
-    	</div>
+    	</nav>
     );
 };
 
