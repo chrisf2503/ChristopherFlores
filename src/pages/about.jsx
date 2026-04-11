@@ -1,7 +1,7 @@
 import aboutStyle from '../CSS/about.module.css'
 import Navbar from "./components/navbar";
 import img1 from '../assets/background.png'
-import img2 from '../assets/chrisflores2.png'
+import img2 from '../assets/ChrisFlores2.png'
 function aboutMe(){
     return (
         <>
