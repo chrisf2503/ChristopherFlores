@@ -1,6 +1,5 @@
 import { useState } from "react";
 import formStyle from "../../CSS/form.module.css"
-import { form } from "framer-motion/m";
 function Form(){
     const [formValue, setFormValue] = useState(
         {
@@ -18,7 +17,6 @@ function Form(){
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-
         console.log(formValue);
 
         setFormValue({
@@ -51,7 +49,7 @@ function Form(){
                     </div>
                     <input 
                     className={formStyle.value}
-                    name="name" 
+                    name="email" 
                     value = {formValue.email} 
                     onChange = {handelChange}
                     placeholder="Enter Here"/>
