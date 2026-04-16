@@ -9,14 +9,62 @@ function Form(){
             message: ""
         }
     );
+    const [errors, setErrors] = useState({});
+
+    const validateName = (name) => {
+        if (name.length <= 3) return "Name must be more than 3 characters.";
+        if (!name.includes(" ")) return "Name must include a space for first and last name.";
+        return "";
+    };
+
+    const validateEmail = (email) => {
+        if (!email.includes("@") || !email.includes(".")) return "Email must contain '@' and '.'.";
+        return "";
+    };
+
+    const validatePhone = (phone) => {
+        const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/;
+        if (!phoneRegex.test(phone)) return "Phone number must be valid (at least 10 digits, can include spaces, dashes, parentheses).";
+        return "";
+    };
+
+    const validateMessage = (message) => {
+        if (message.length <= 30) return "Message must be more than 30 characters.";
+        return "";
+    };
+
     const handelChange = (e) =>{
         const { name, value } = e.target;
         setFormValue((prev) => ({...prev,
             [name]: value,
         }));
+        // Clear error for this field when user starts typing
+        if (errors[name]) {
+            setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        const nameError = validateName(formValue.name);
+        const emailError = validateEmail(formValue.email);
+        const phoneError = validatePhone(formValue.phone);
+        const messageError = validateMessage(formValue.message);
+        
+        const newErrors = {
+            name: nameError,
+            email: emailError,
+            phone: phoneError,
+            message: messageError,
+        };
+        
+        setErrors(newErrors);
+        
+        // Check if any errors
+        if (nameError || emailError || phoneError || messageError) {
+            return; // Don't submit
+        }
+        
         console.log(formValue);
 
         setFormValue({
@@ -25,6 +73,7 @@ function Form(){
             phone: "",
             message: ""
         });
+        setErrors({});
         //Add functions here later
         // later → send to email / API
     };
@@ -34,7 +83,7 @@ function Form(){
                 <div className={formStyle.title}>Contact me</div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Name</label>
+                        <label className={formStyle.name}>Full Name</label>
                     </div>
                     <input 
                     className={formStyle.value}
@@ -42,6 +91,7 @@ function Form(){
                     value = {formValue.name} 
                     onChange = {handelChange}
                     placeholder="Enter Here"/>
+                    {errors.name && <div className={formStyle.error}>{errors.name}</div>}
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
@@ -53,6 +103,7 @@ function Form(){
                     value = {formValue.email} 
                     onChange = {handelChange}
                     placeholder="Enter Here"/>
+                    {errors.email && <div className={formStyle.error}>{errors.email}</div>}
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
@@ -64,6 +115,7 @@ function Form(){
                     value = {formValue.phone} 
                     onChange = {handelChange}
                     placeholder="Enter Here"/>
+                    {errors.phone && <div className={formStyle.error}>{errors.phone}</div>}
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
@@ -75,6 +127,7 @@ function Form(){
                     value = {formValue.message} 
                     onChange = {handelChange}
                     placeholder="Enter Here"/>
+                    {errors.message && <div className={formStyle.error}>{errors.message}</div>}
                 </div>
                 <button type="submit" className={formStyle.submit}>Submit</button>
             </form>
