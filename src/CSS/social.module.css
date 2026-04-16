@@ -1,0 +1,74 @@
+.social {
+  	/* CHANGED: fluid sizing to prevent overflow on mobile/zoom */
+  	height: auto;
+  	width: min(460px, 100%);
+  	position: relative;
+  	box-shadow: 0px 4px 60px 3px rgba(0, 0, 0, 0.25);
+  	border-radius: 25px;
+  	background-color: var(--color-gray);
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 10px;
+  	box-sizing: border-box;
+  	isolation: isolate;
+  	gap: 10px;
+  	text-align: center;
+  	font-size: 36px;
+  	color: var(--color-white);
+	font-family:'Jacques Francois';
+}
+.img1,.img2{
+	height: auto;
+  	width: min(219px, 44vw);
+  	margin: 0 !important;
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	align-items: center;
+}
+.img2{
+	gap: 36px;
+	padding-top: 35px;
+}
+.linkedIn {
+  	width: 100%;
+  	max-width: 211px;
+  	height: auto;
+  	object-fit: cover;
+}
+.subtitle {
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 100%;
+  	min-height: 46px;
+}
+.Github {
+  	width: 100%;
+  	max-width: 140px;
+  	height: auto;
+  	object-fit: cover;
+}
+
+/* CHANGED: collapse social card on narrow screens */
+@media (max-width: 600px) {
+	.social {
+		flex-direction: column;
+		font-size: 30px;
+	}
+
+	.img1,
+	.img2 {
+		width: min(219px, 70vw);
+	}
+
+	.img2 {
+		gap: 18px;
+		padding-top: 0;
+	}
+}
+

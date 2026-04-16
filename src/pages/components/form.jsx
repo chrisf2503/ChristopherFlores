@@ -34,7 +34,7 @@ function Form(){
                 <div className={formStyle.title}>Contact me</div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Name:</label>
+                        <label className={formStyle.name}>Name</label>
                     </div>
                     <input 
                     className={formStyle.value}
@@ -45,7 +45,7 @@ function Form(){
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Email:</label>
+                        <label className={formStyle.name}>Email</label>
                     </div>
                     <input 
                     className={formStyle.value}
@@ -56,7 +56,7 @@ function Form(){
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Phone:</label>
+                        <label className={formStyle.name}>Phone</label>
                     </div>
                     <input 
                     className={formStyle.value}
@@ -67,7 +67,7 @@ function Form(){
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Message:</label>
+                        <label className={formStyle.name}>Message</label>
                     </div>
                     <textarea 
                     className={formStyle.value2}
