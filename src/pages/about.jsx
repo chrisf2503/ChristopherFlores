@@ -24,7 +24,7 @@ function aboutMe(){
                             regions of Mexico and honoring the beauty of our traditions.
                             <br/><br/>
                             I’m also a vihuela player in training, continuing to grow in my understanding of mariachi music and music theory. 
-                            hrough both dance and music, I strive to celebrate and share the richness of my culture.
+                            Through both dance and music, I strive to celebrate and share the richness of my culture.
                         </div>
                     </div>
 

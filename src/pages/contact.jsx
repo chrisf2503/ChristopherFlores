@@ -12,8 +12,8 @@ function Contact() {
         <div className={contactStyle.information}>
           <div className={contactStyle.text}>
             <p>
-              If you have any questions, or want to create an affordable please
-              reach out and we will be in touch!
+              If you have any questions, or want to create an affordable
+              website, please reach out and we will be in touch!
             </p>
           </div>
         </div>

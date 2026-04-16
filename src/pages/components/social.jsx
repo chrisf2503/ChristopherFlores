@@ -2,7 +2,7 @@ import socialStyle from '../../CSS/social.module.css'
 import LinkedIn from '../../assets/LinkedIn.png'
 import Github from '../../assets/github.png'
 function Social(){
-    //Change links to hyper links later
+    // Change links to hyperlinks later.
     return (
         <div className={socialStyle.social}>
             <div className={socialStyle.img1}>

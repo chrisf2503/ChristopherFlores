@@ -113,15 +113,15 @@ function Home (){
                     </div>
                     <div className={workexperienceStyle.work_details}>
                         <div className={workexperienceStyle.title}>{currentExperience.title}</div>
-                        <div>{currentExperience.employeer} {currentExperience.address}</div>
+                        <div>{currentExperience.employer} {currentExperience.address}</div>
                         <div className={workexperienceStyle.timeline}>
                             {`${currentExperience.startDate} - ${currentExperience.endDate}`}
                         </div>
                         <div className={workexperienceStyle.responsibility}>
                             <div className={workexperienceStyle.details}>
                                 <ul className={workexperienceStyle.list}>
-                                    {currentExperience.discription.length > 0 ? (
-                                        currentExperience.discription.map((item, itemIndex) => (
+                                    {currentExperience.description.length > 0 ? (
+                                        currentExperience.description.map((item, itemIndex) => (
                                             <li key={itemIndex} className={workexperienceStyle.experience}>{item}</li>
                                         ))
                                     ) : (

@@ -35,7 +35,7 @@ function Form(){
         return "";
     };
 
-    const handelChange = (e) =>{
+    const handleChange = (e) =>{
         const { name, value } = e.target;
         setFormValue((prev) => ({...prev,
             [name]: value,
@@ -96,7 +96,7 @@ function Form(){
                     className={formStyle.value}
                     name="name" 
                     value = {formValue.name} 
-                    onChange = {handelChange}
+                    onChange = {handleChange}
                     placeholder="Enter Here"/>
                     {errors.name && <div className={formStyle.error}>{errors.name}</div>}
                 </div>
@@ -108,7 +108,7 @@ function Form(){
                     className={formStyle.value}
                     name="email" 
                     value = {formValue.email} 
-                    onChange = {handelChange}
+                    onChange = {handleChange}
                     placeholder="Enter Here"/>
                     {errors.email && <div className={formStyle.error}>{errors.email}</div>}
                 </div>
@@ -120,7 +120,7 @@ function Form(){
                     className={formStyle.value}
                     name="phone" 
                     value = {formValue.phone} 
-                    onChange = {handelChange}
+                    onChange = {handleChange}
                     placeholder="Enter Here"/>
                     {errors.phone && <div className={formStyle.error}>{errors.phone}</div>}
                 </div>
@@ -132,7 +132,7 @@ function Form(){
                     className={formStyle.value2}
                     name="message" 
                     value = {formValue.message} 
-                    onChange = {handelChange}
+                    onChange = {handleChange}
                     placeholder="Enter Here"/>
                     {errors.message && <div className={formStyle.error}>{errors.message}</div>}
                 </div>
