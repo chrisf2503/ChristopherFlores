@@ -1,5 +1,6 @@
 import { useState } from "react";
 import formStyle from "../../CSS/form.module.css"
+import emailjs from '@emailjs/browser';
 function Form(){
     const [formValue, setFormValue] = useState(
         {
@@ -10,6 +11,7 @@ function Form(){
         }
     );
     const [errors, setErrors] = useState({});
+    const [submitStatus, setSubmitStatus] = useState("");
 
     const validateName = (name) => {
         if (name.length <= 3) return "Name must be more than 3 characters.";
@@ -45,6 +47,7 @@ function Form(){
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        setSubmitStatus("");
         
         const nameError = validateName(formValue.name);
         const emailError = validateEmail(formValue.email);
@@ -65,17 +68,21 @@ function Form(){
             return; // Don't submit
         }
         
-        console.log(formValue);
-
-        setFormValue({
-            name: "",
-            email: "",
-            phone: "",
-            message: ""
-        });
-        setErrors({});
-        //Add functions here later
-        // later → send to email / API
+        // Send email via EmailJS
+        emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formValue, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+            .then(() => {
+                setSubmitStatus('Email sent successfully!');
+                setFormValue({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    message: ""
+                });
+                setErrors({});
+            })
+            .catch(() => {
+                setSubmitStatus('Failed to send email. Please try again.');
+            });
     };
     return (
         <div className={formStyle.form_container}>
@@ -130,6 +137,7 @@ function Form(){
                     {errors.message && <div className={formStyle.error}>{errors.message}</div>}
                 </div>
                 <button type="submit" className={formStyle.submit}>Submit</button>
+                {submitStatus && <div className={formStyle.status}>{submitStatus}</div>}
             </form>
         </div>
     )
